@@ -1,3 +1,3 @@
-module practice-golang/fibonacci
+module practice-golang/stairway
 
 go 1.17
