@@ -16,6 +16,9 @@
 			"path": "rodsell"
 		},
 		{
+			"path": "sharemarket"
+		},
+		{
 			"path": "."
 		}
 	]
