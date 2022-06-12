@@ -1,8 +1,22 @@
 {
 	"folders": [
 		{
+			"path": "hello"
+		},
+		{
+			"path": "fibonacci"
+		},
+		{
+			"path": "stairway"
+		},
+		{
+			"path": "waystohome"
+		},		
+		{
+			"path": "rodsell"
+		},
+		{
 			"path": "."
 		}
-	],
-	"settings": {}
+	]
 }
