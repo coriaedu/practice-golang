@@ -5,7 +5,7 @@ import "fmt"
 func main() {
 
 	// Number to calculate its Fibonacci
-	n := 0
+	n := 15
 
 	fn, fa := CalculateFibonacci(n)
 	fmt.Println("Fibonacci for", n, "is", fn, " - Full array:", fa)
