@@ -2,19 +2,20 @@ package main
 
 import "testing"
 
-func TestCalculateRodMax(t *testing.T) {
+func TestCalculateMaxProfit(t *testing.T) {
 	cases := []struct {
-		cost     []int
+		price    []int
 		expected int
 	}{
-		{[]int{0, 2, 4, 5, 7}, 8},
+		{[]int{8, 1, 2, 4, 6, 3}, 5},
 		{[]int{0, 2}, 2},
+		{[]int{9, 8, 6, 5, 2}, 0},
 	}
 
 	for _, c := range cases {
-		max := MaxProfit(c.cost)
+		max := MaxProfit(c.price)
 		if max != c.expected {
-			t.Errorf("Max profit of rod (%v) == %v, but %v was expected", c.cost, max, c.expected)
+			t.Errorf("Max profit of buying and then selling (%v) == %v, but %v was expected", c.price, max, c.expected)
 		}
 	}
 }

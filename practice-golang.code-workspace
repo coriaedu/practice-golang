@@ -19,6 +19,9 @@
 			"path": "sharemarket"
 		},
 		{
+			"path": "sumofrange"
+		},
+		{
 			"path": "."
 		}
 	]
