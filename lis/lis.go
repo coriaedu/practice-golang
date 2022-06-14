@@ -6,7 +6,7 @@ import (
 
 func main() {
 
-	nums := []int{11, 7, 12, 34, 1, 2, 7, 8}
+	nums := []int{11, 23, 10, 37, 21, 50, 80}
 
 	lis, max_seq := LongestIncreasingSubsequence(nums)
 	fmt.Println("Longest Increasing Subsequence for these nums", nums, "is", lis, "with sequence", max_seq)
@@ -21,13 +21,13 @@ func LongestIncreasingSubsequence(nums []int) (int, []int) {
 
 	// Store all LIS(i) values in an array
 	lises := make([]int, len(nums))
-
-	// Store all sequences for each LIS
-	seq := make([][]int, len(nums))
-
 	// initialize the first value
 	lises[0] = 1
-	seq[0] = []int{nums[0]}
+
+	// Store the previous index for each indexe's LIS
+	seq := make([]int, len(nums))
+	seq[0] = -1 // indicates end of
+
 	//fmt.Printf("LIS[0] = %v\n", lises[0])
 
 	// The global max LIS
@@ -49,12 +49,8 @@ func LongestIncreasingSubsequence(nums []int) (int, []int) {
 		}
 
 		lises[i] = 1 + innerMax
+		seq[i] = max_j
 
-		if max_j >= 0 {
-			seq[i] = append(seq[max_j], nums[i])
-		} else {
-			seq[i] = []int{nums[i]}
-		}
 		// fmt.Printf("LIS[%v] = %v\n", i, lises[i])
 
 		if lises[i] > maxLis {
@@ -64,5 +60,17 @@ func LongestIncreasingSubsequence(nums []int) (int, []int) {
 
 	}
 
-	return maxLis, seq[max_i]
+	return maxLis, sequence(nums, seq, max_i)
+}
+
+func sequence(nums []int, seq []int, end int) []int {
+
+	final := []int{}
+
+	for end >= 0 {
+		final = append([]int{nums[end]}, final...)
+		end = seq[end]
+	}
+
+	return final
 }
